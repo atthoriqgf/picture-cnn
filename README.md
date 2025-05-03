@@ -6,7 +6,10 @@ Proyek ini adalah aplikasi klasifikasi gambar yang mampu membedakan antara gamba
 
 ## 🔧 Fitur
 
-- Upload gambar (jpg/jpeg/png)
+- Upload gambar:
+  - JPG
+  - JPEG (Not tested)
+  - PNG (Not tested)
 - Prediksi apakah gambar tersebut adalah **kucing** atau **anjing**
 - Tampilan interaktif berbasis Streamlit
 
