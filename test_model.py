@@ -2,8 +2,19 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
+model_url = "https://huggingface.co/atthoriqgf112/picture-cnn/resolve/main/model_cnn.h5"
+model_path = "model_cnn.h5"
+
+# Unduh file jika belum ada
+if not os.path.exists(model_path):
+    with requests.get(model_url, stream=True) as r:
+        r.raise_for_status()
+        with open(model_path, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+
 # Memuat model CNN yang sudah dilatih
-model = load_model('model_cnn.h5')
+model = load_model(model_path)
 
 # Path ke gambar yang ingin diuji
 # img_path = 'dataset/test/cat/cat.4004.jpg'
