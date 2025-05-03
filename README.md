@@ -67,6 +67,5 @@ ___
 - Python 3.10 (penting karena untuk support TensorFlow / Keras)
 - TensorFlow / Keras
 - Streamlit
-- Streamlit Cloud
 - NumPy
 - Pillow (PIL)
