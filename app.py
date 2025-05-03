@@ -3,18 +3,13 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+from huggingface_hub import hf_hub_download
 
-# Load model
-model_url = "https://huggingface.co/atthoriqgf112/picture-cnn/resolve/main/model_cnn.h5"
-model_path = "model_cnn.h5"
-
-# Unduh file jika belum ada
-if not os.path.exists(model_path):
-    with requests.get(model_url, stream=True) as r:
-        r.raise_for_status()
-        with open(model_path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                f.write(chunk)
+# Download model dari Hugging Face Hub
+model_path = hf_hub_download(
+    repo_id="atthoriqgf112/picture-cnn",
+    filename="model_cnn.h5"
+)
 
 # Memuat model CNN yang sudah dilatih
 model = load_model(model_path)
